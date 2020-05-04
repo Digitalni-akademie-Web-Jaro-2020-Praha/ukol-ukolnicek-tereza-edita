@@ -15,7 +15,9 @@ const updateTasks = () => {
 const btnAdd = document.querySelector('.btn-add')
 btnAdd.addEventListener('click', () => {
   let newTask = document.querySelector('.new-task')
-  tasks.push(newTask.value)
+  if (newTask.value === '') {
+    return null
+  } else tasks.push(newTask.value)
   updateTasks(tasks)
   newTask.value = ''
 })
