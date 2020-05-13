@@ -3,13 +3,16 @@
 console.log('funguju!')
 
 let tasks = []
-const toDo = document.querySelector('.todo__tasks')
+let toDo = document.querySelector('.todo__tasks')
 
 const updateTasks = () => {
-  toDo.innerHTML += `
-  <div class="task">
-    ${tasks[tasks.length - 1]}
-    </div>`
+  toDo.innerHTML = ''
+  for (let i = 0; i < tasks.length; i++) {
+    toDo.innerHTML += `
+    <div class="task">
+      ${tasks[i]}
+      </div>`
+  }
 }
 
 const btnAdd = document.querySelector('.btn-add')
@@ -18,6 +21,6 @@ btnAdd.addEventListener('click', () => {
   if (newTask.value === '') {
     return null
   } else tasks.push(newTask.value)
-  updateTasks(tasks)
+  updateTasks()
   newTask.value = ''
 })
